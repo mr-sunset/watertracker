@@ -3,7 +3,7 @@
     --background-dark: black;
 
     --accent: #6fcdff;
-    --gradient: linear-gradient(90deg, #94daff, #6fcdff);;
+    --gradient: linear-gradient(90deg, #94daff, #6fcdff);
 }
 
 body {
@@ -55,6 +55,8 @@ main {
     margin-bottom: 40px;
 }
 
+#intake-unit { font-size: 24px; margin: 0; }
+
 #amount-slider-container label {
     margin-right: 10px;
 }
@@ -83,8 +85,8 @@ main {
     width: 25px;
     border-radius: 100px;
     background: var(--background);
-    border: 2px solid black;
-    box-shadow: var(--shadow-2);
+    border: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 #amount-slider:active::-webkit-slider-thumb {
@@ -95,7 +97,7 @@ main {
     padding: 16px 80px;
     border: none;
     border-radius: 12px;
-    background: var(--accent);
+    background: var(--gradient);
     box-shadow: 0 4px 4px rgb(0, 0, 0, 0.1);
     color: black;
     cursor: pointer;
@@ -115,6 +117,23 @@ main {
     transform: scale(0.95);
 }
 
+#logged-card {
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--gradient);
+    border: 2px solid black;
+    color: black;
+}
+
+#logged-card h1 {
+    margin: 10px 20px;
+}
+
+#settings-button {
+    position: absolute;
+}
+
 #settings-icon {
     height: 25px;
     width: 25px;
@@ -122,6 +141,7 @@ main {
     position: absolute;
     bottom: 20px;
     right: 20px;
+    cursor: pointer;
     transition: all 0.12s ease;
 }
 
@@ -139,6 +159,15 @@ main {
     body {
         background: rgb(20, 20, 20);
         color: white;
+    }
+
+    header {
+        background: var(--gradient);
+    }
+
+    header h1, 
+    header p {
+        color: black;
     }
 
     #amount-slider {

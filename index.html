@@ -4,7 +4,7 @@
     <head>
         <title>WaterTrack</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -15,18 +15,29 @@
         </header>
 
         <main>
-            <span id="intake">0</span>
+            <span id="intake">
+                0
+                <span id="intake-unit">oz</span>
+            </span>
 
             <div id="amount-slider-container">
-                <label for="amount-slider">0</label>
-                <input type="range" id="amount-slider" name="amount-slider" min="0" max="100" step="2">
+                <label for="amount-slider">
+                   <span id="amount-slider-current">0</span>
+                     oz
+                </label>
+                <input type="range" id="amount-slider" name="amount-slider" min="2" max="100" step="2">
             </div>
 
             <button id="log-button">Log</button>
 
-            <!-- <img src="settings-icon.svg" alt="Settings icon" id="settings-icon" height="25"> -->
+            <section id="logged-card">
+                <h1>Logged drinks</h1>
+                <ul id="drinks">
+                    <li class="empty-state">No logged drinks</li>
+                </ul>
+            </section>
 
-            <svg id="settings-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" >
+            <svg id="settings-icon" aria-label="Open Settings" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" >
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -38,7 +49,7 @@
             </svg>
         </main>
 
-        <script src="https://cdn.jsdelivr.net/npm/@hiseb/confetti@2.1.0/dist/confetti.min.js"></script> <!-- Confetti -->
+        <script src="https://cdn.jsdelivr.net/npm/@hiseb/confetti@2.1.0/dist/confetti.min.js"></script>
         <script src="script.js"></script>
     </body>
 </html>
