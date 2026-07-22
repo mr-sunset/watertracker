@@ -135,12 +135,12 @@ main {
 }
 
 #settings-icon {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     stroke: var(--accent);
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 10px;
     cursor: pointer;
     transition: all 0.12s ease;
 }
