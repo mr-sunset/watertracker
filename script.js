@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const intake = document.getElementById('intake');
     const amountSlider = document.getElementById('amount-slider');
     const amountSliderCurrent = document.getElementById('amount-slider-current');
+    const quickChips = document.querySelectorAll('.quick-chip');
     const logButton = document.getElementById('log-button');
     const loggedCard = document.getElementById('logged-card');
     const settingsIcon = document.getElementById('settings-icon');
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Confetti function
     function celebrate() {
         confetti({
-            velocity: 300,
+            velocity: 400,
             count: 100
         });
     }
@@ -21,15 +22,33 @@ document.addEventListener('DOMContentLoaded', () => {
         amountSliderCurrent.innerHTML = amountSlider.value;
     });
 
-    // Total adding logic
+    // Button logic
     logButton.addEventListener('click', () => {
+        celebrate();
+
+        intake.classList.add('pop');
+
+        // Adding logic
         totalIntake += parseInt(amountSlider.value, 10);
         intake.childNodes[0].nodeValue = `${totalIntake} `;
+
+        // Reset slider location
+        amountSliderCurrent.innerHTML = '8';
+        amountSlider.value = 8;
     });
 
-    // Clear when log button pressed (and move slider back)
-    logButton.addEventListener('click', () => {
-        amountSliderCurrent.innerHTML = '2';
-        amountSlider.value = 2
+    intake.addEventListener('animationend', () => {
+        intake.classList.remove('pop');
+    });
+
+    // Quick chip logic
+    quickChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const amount = parseInt(chip.textContent, 10);
+            totalIntake += amount;
+            intake.childNodes[0].nodeValue = `${totalIntake} `;
+            celebrate();
+            intake.classList.add('pop');
+        });
     });
 })

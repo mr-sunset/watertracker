@@ -6,6 +6,23 @@
     --gradient: linear-gradient(90deg, #94daff, #6fcdff);
 }
 
+@keyframes pop {
+    0% {
+        color: auto;
+    }
+
+    50% {
+        color: var(--accent);
+        transform: scale(1.1);
+    }
+
+    100% {
+        color: auto;
+    }
+}
+
+.pop { animation: pop 0.4s forwards; }
+
 body {
     display: flex;
     flex-direction: column;
@@ -93,6 +110,31 @@ main {
     transform: scale(0.95);
 }
 
+#quick-chips {
+    margin-bottom: 30px;
+}
+
+.quick-chip {
+    border: none;
+    background-color: var(--accent);
+    padding: 10px 15px;
+    margin: -1px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+}
+
+.quick-chip:first-child { border-top-left-radius: 100px; border-bottom-left-radius: 100px; }
+
+.quick-chip:last-child { border-top-right-radius: 100px; border-bottom-right-radius: 100px; }
+
+.quick-chip:active {
+    transform: scale(0.95);
+}
+
+.quick-chip::after {
+    content: ' oz';
+}
+
 #log-button {
     padding: 16px 80px;
     border: none;
@@ -107,10 +149,6 @@ main {
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
     transition: all 0.12s ease;
-}
-
-#log-button:hover {
-    transform: translateY(-3px);
 }
 
 #log-button:active {
@@ -130,29 +168,44 @@ main {
     margin: 10px 20px;
 }
 
-#settings-button {
-    position: absolute;
+#settings-icon-btn {
+    width: 25px;
+    height: 25px;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+}
+
+#settings-icon-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 #settings-icon {
-    height: 20px;
-    width: 20px;
+    height: 100%;
+    width: 100%;
     stroke: var(--accent);
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    cursor: pointer;
-    transition: all 0.12s ease;
+
+    pointer-events: none;
+    transition: transform 0.12s ease;
 }
 
-#settings-icon:hover {
+#settings-icon-btn:hover #settings-icon {
     transform: rotate(30deg);
 }
 
-#settings-icon:active {
-    transform: 
-        scale(0.95)
-        rotate(30deg);
+#settings-icon-btn:active #settings-icon {
+    transform: scale(0.95) rotate(30deg);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -172,5 +225,9 @@ main {
 
     #amount-slider {
         background: #94daff;
+    }
+
+    #settings-icon {
+        stroke: black;
     }
 }
