@@ -74,6 +74,31 @@ main {
 
 #intake-unit { font-size: 24px; margin: 0; }
 
+#quick-chips {
+    margin-bottom: 30px;
+}
+
+.quick-chip {
+    border: none;
+    background-color: var(--accent);
+    padding: 10px 15px;
+    margin: -1px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+}
+
+.quick-chip:first-child { border-top-left-radius: 100px; border-bottom-left-radius: 100px; }
+
+.quick-chip:last-child { border-top-right-radius: 100px; border-bottom-right-radius: 100px; }
+
+.quick-chip:active {
+    transform: scale(0.95);
+}
+
+.quick-chip::after {
+    content: ' oz';
+}
+
 #amount-slider-container label {
     margin-right: 10px;
 }
@@ -110,31 +135,6 @@ main {
     transform: scale(0.95);
 }
 
-#quick-chips {
-    margin-bottom: 30px;
-}
-
-.quick-chip {
-    border: none;
-    background-color: var(--accent);
-    padding: 10px 15px;
-    margin: -1px;
-    cursor: pointer;
-    transition: all 0.12s ease;
-}
-
-.quick-chip:first-child { border-top-left-radius: 100px; border-bottom-left-radius: 100px; }
-
-.quick-chip:last-child { border-top-right-radius: 100px; border-bottom-right-radius: 100px; }
-
-.quick-chip:active {
-    transform: scale(0.95);
-}
-
-.quick-chip::after {
-    content: ' oz';
-}
-
 #log-button {
     padding: 16px 80px;
     border: none;
@@ -155,17 +155,48 @@ main {
     transform: scale(0.95);
 }
 
-#logged-card {
+#logged-drinks {
     margin-top: 40px;
     padding: 10px;
     border-radius: 10px;
-    background: var(--gradient);
-    border: 2px solid black;
+    border: 2px solid var(--accent);
     color: black;
 }
 
-#logged-card h1 {
+#logged-drinks h1 {
     margin: 10px 20px;
+}
+
+#drinks {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.drink-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: var(--accent);
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.drink-entry .drink-time {
+    font-size: 0.85rem;
+    color: black;
+    font-weight: normal;
+}
+
+.empty-state {
+    text-align: center;
+    color: #888;
+    padding: 12px 0;
+    font-style: italic;
 }
 
 #settings-icon-btn {
@@ -225,6 +256,10 @@ main {
 
     #amount-slider {
         background: #94daff;
+    }
+
+    #logged-drinks h1 {
+        color: white;
     }
 
     #settings-icon {
