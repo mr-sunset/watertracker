@@ -4,6 +4,7 @@
 
     --accent: #6fcdff;
     --gradient: linear-gradient(90deg, #94daff, #6fcdff);
+    --warning: linear-gradient(90deg, #ff6f6f, #ff5252);
 }
 
 @keyframes pop {
@@ -81,6 +82,7 @@ main {
 .quick-chip {
     border: none;
     background-color: var(--accent);
+    color: black;
     padding: 10px 15px;
     margin: -1px;
     cursor: pointer;
@@ -239,6 +241,67 @@ main {
     transform: scale(0.95) rotate(30deg);
 }
 
+#settings-panel {
+    display: none;
+    
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    border: 2px solid var(--accent);
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#settings-panel.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+}
+
+#settings-panel h1 {
+    text-align: center;
+    margin: 10px 10px;
+}
+
+#settings-panel p {
+    text-align: center;
+    font-size: 10px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+#settings-panel #reset-btn {
+    padding: 16px 80px;
+    margin: 10px 10px;
+    border: none;
+    border-radius: 12px;
+    background: var(--warning);
+    box-shadow: 0 4px 12px rgb(0, 0, 0, 0.2);
+    color: black;
+    cursor: pointer;
+
+    user-select: none;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.12s ease;
+}
+
+#settings-panel #reset-btn:active {
+    transform: scale(0.95);
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background: rgb(20, 20, 20);
@@ -264,5 +327,14 @@ main {
 
     #settings-icon {
         stroke: black;
+    }
+
+    #settings-panel {
+        background-color: rgb(20, 20, 20);
+        color: white;
+    }
+
+    #settings-panel h1 {
+        color: white;
     }
 }
